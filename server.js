@@ -9,7 +9,6 @@ var UsersRoutes = require('./routes/users.routes');
 var AutreRoutes = require("./routes/routes.autre");
 
 const db = require('./models/index')
-// const { Server } = require('http');
 require('dotenv').config();
 
 var app = express();
@@ -42,7 +41,7 @@ app.use(passport.session());
 
 app.use(cors(corsOptionsDelegate));
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', ['Content-Type','Authorization']);
   res.setHeader('Access-Control-Allow-Credentials', true)
@@ -52,17 +51,16 @@ app.use((req, res, next) => {
   next();
 })
 
-
-
-
 app.post('/api/login', async (req,res) => {
   const {Email, Password} = req.body
   const users = await db.Users.findOne({where: { Email: Email }});
+  
   try {
+    console.log(users.Password)
     if (users.Password === Password) {
       req.session.authenticated = true
       req.session.type = users.Type;
-      res.json({message: "Authentification réussie"})
+      res.json(users.Type)
     } else {
       res.status(401).json({message: "Authentification échoué"})
     }
@@ -71,12 +69,11 @@ app.post('/api/login', async (req,res) => {
   }
 })
 
-
-
 app.use('/api/users', UsersRoutes);
 app.use('/api/achats', AutreRoutes)
 
 const PORT = process.env.PORT || 9090;
 app.listen(PORT, () => {
-console.log(`Server is running.`);
+console.log(`Server is running.`,);
+console.log(PORT)
 });

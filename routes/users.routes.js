@@ -7,9 +7,6 @@ const router  = express.Router();
 const users    = require("../controllers/users.controllers");
 const auth = require('../middleware/auth')
 
-
-
-
 router.get('/me', auth.isAuthenticated, function(req, res) {
   const data = {
     type:req.session.type
@@ -26,9 +23,9 @@ router.post('/logout',(req, res, next)=> {
   })
 })
   
-router.post("/", auth.isAdmin, users.createUsers);
+router.post("/", users.createUsers);
 // Retrieve all todo list
-router.get("/",auth.isAdmin, users.findAllUsers);
+router.get("/",users.findAllUsers);
 
 // Retrieve a single Todo with id
 router.get("/:id", auth.isAdmin, users.findOneUsers);
