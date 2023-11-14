@@ -1,11 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "dbdev",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-
+    "dialect": "sqlite",
+    "storage": "dev/db.sqlite"
   },
   "test": {
     "username": "root",
@@ -17,7 +13,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "db_elearning",
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
