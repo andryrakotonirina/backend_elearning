@@ -54,7 +54,7 @@ exports.findAllAchat = async function(req, res) {
 		});
     }
 }
-
+//fa manino zany ny raha ty tsa mandeha
 //mbola mila teste rehefa misy element ao anatin'ny table cours
 //trouver tous les achats par chaque utilisateur
 //trouver tous les cours achetées par chaque utilisateur

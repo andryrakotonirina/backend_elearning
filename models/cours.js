@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     IdMatiereCours: DataTypes.STRING,
     IdUsersTypeEnseignantCours: DataTypes.STRING,
     IdTagsCours: DataTypes.STRING,
-    IdChapitreCours: DataTypes.STRING
+    PhotoCours: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Cours',

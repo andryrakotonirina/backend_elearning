@@ -11,7 +11,7 @@ exports.createUsers =async function(req, res){
         });
     }
 }
-
+//efa nisy modification bobaka tato
 exports.findAllUsers = async (req, res) => {
     try {
         const users = await db.Users.findAll()

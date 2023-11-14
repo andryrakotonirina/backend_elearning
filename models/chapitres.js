@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     Titre: DataTypes.STRING,
     Video: DataTypes.STRING,
     ResumeChapitre: DataTypes.STRING,
-    Sequence: DataTypes.STRING
+    Sequence: DataTypes.STRING,
+    IdCoursChapitre: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Chapitres',

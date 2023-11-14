@@ -21,6 +21,9 @@ module.exports = {
       Sequence: {
         type: Sequelize.STRING
       },
+      IdCoursChapitre: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

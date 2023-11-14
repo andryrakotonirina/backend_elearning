@@ -27,7 +27,7 @@ module.exports = {
       IdTagsCours: {
         type: Sequelize.STRING
       },
-      IdChapitreCours: {
+      PhotoCours: {
         type: Sequelize.STRING
       },
       createdAt: {

@@ -5,6 +5,7 @@ const passport  = require('passport');
 const cors = require("cors");
 
 
+
 var UsersRoutes = require('./routes/users.routes');
 var AutreRoutes = require("./routes/routes.autre");
 
@@ -49,6 +50,17 @@ app.use((req, res, next) => {
     return res.sendStatus(200);
   }
   next();
+})
+
+//upload photo avec multer efa mety
+const multerMiddleware = require('./middleware/multer');
+app.post('/upload', multerMiddleware.multerMiddleware, multerMiddleware.handleFileUpload, (req, res) => {
+  res.send('Fichier téléchargé et enregistré avec succès dans la base de données !');
+});
+
+const multer = require('./middleware/multerVideo');
+app.post('api/chapitre', multer.multerChapitres, multer.handleFileUploadChapitres, (req, res) => {
+  res.send('Fichier téléchargé et enregistré avec succès dans la base de données !')
 })
 
 app.post('/api/login', async (req,res) => {
